@@ -1,0 +1,375 @@
+/* ─────────────────────────────────────────────
+   Kunyang Li — Academic Homepage
+   Shared stylesheet
+───────────────────────────────────────────── */
+
+:root {
+  --bg:        #faf9f7;
+  --surface:   #ffffff;
+  --text:      #1a1a1a;
+  --muted:     #6b6b6b;
+  --light:     #a8a8a8;
+  --accent:    #2a52a0;
+  --rule:      #e0ddd8;
+  --tag-bg:    #f0ede8;
+  --tag-text:  #4a4a4a;
+  --pub-bg:    #edf4ec;
+  --pub-text:  #2d6a2d;
+  --wip-bg:    #fdf3e7;
+  --wip-text:  #7a4f1a;
+  --coming-bg: #e8edf7;
+  --coming-text:#2a52a0;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.78;
+  min-height: 100vh;
+}
+
+a { color: var(--accent); }
+a:hover { opacity: .75; }
+
+/* ── Page wrapper ── */
+.page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 56px 32px 96px;
+}
+
+/* ── Header / Nav ── */
+header {
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 32px;
+  margin-bottom: 52px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.site-name {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text);
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  font-family: 'DM Mono', monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color .15s;
+}
+
+nav a:hover, nav a.active { color: var(--accent); opacity: 1; }
+
+/* ── Page title ── */
+h1.page-title {
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: -.01em;
+  margin-bottom: 4px;
+}
+
+.page-note {
+  font-size: 15px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ── Section ── */
+.section { margin-top: 52px; }
+
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--light);
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 28px;
+}
+
+.subsection-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: .06em;
+  color: var(--muted);
+  margin: 36px 0 18px;
+}
+
+/* ── Paper list ── */
+.papers { list-style: none; }
+
+.paper {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 0 14px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.papers > .paper:first-child { border-top: 1px solid var(--rule); }
+
+.paper-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--light);
+  padding-top: 3px;
+}
+
+.paper-title {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.45;
+  margin-bottom: 4px;
+}
+
+.paper-title a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color .15s, color .15s;
+}
+.paper-title a:hover { color: var(--accent); border-color: var(--accent); opacity: 1; }
+
+.paper-authors {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 3px;
+}
+.paper-authors strong { color: var(--text); font-weight: 600; }
+
+.paper-venue {
+  font-size: 15px;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.paper-venue .year {
+  font-style: normal;
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+}
+
+.paper-abstract {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.65;
+  padding-left: 12px;
+  border-left: 2px solid var(--rule);
+  margin-top: 8px;
+}
+
+/* ── Badges ── */
+.badges { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+
+.badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: .04em;
+  padding: 2px 8px;
+  border-radius: 3px;
+  line-height: 1.9;
+  white-space: nowrap;
+}
+.badge-pub    { background: var(--pub-bg);    color: var(--pub-text); }
+.badge-wip    { background: var(--wip-bg);    color: var(--wip-text); }
+.badge-coming { background: var(--coming-bg); color: var(--coming-text); }
+.badge-award  { background: #fff4e0; color: #7a5c00; }
+.badge-jnl    { background: var(--tag-bg);   color: var(--tag-text); }
+
+.doi-link {
+  font-family: 'DM Mono', monospace;
+  font-size: 11.5px;
+  color: var(--accent);
+  text-decoration: none;
+  margin-top: 6px;
+  display: inline-block;
+  transition: opacity .15s;
+}
+.doi-link:hover { opacity: .65; }
+
+/* ── Generic list ── */
+.plain-list { list-style: none; }
+
+.plain-item {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 16.5px;
+}
+.plain-list .plain-item:first-child { border-top: 1px solid var(--rule); }
+
+.plain-item .item-title { font-weight: 500; }
+.plain-item .item-meta {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--light);
+  margin-top: 3px;
+}
+.plain-item .item-sub {
+  font-size: 15px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* ── About page ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 40px;
+  align-items: start;
+  margin-top: 0;
+}
+
+.about-photo {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: 4px;
+  filter: grayscale(8%);
+}
+
+.about-photo-placeholder {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: var(--rule);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--light);
+  text-align: center;
+  padding: 20px;
+}
+
+.about-name {
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: -.01em;
+  margin-bottom: 4px;
+}
+
+.about-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 11.5px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.about-body p { margin-bottom: 14px; font-size: 17px; }
+.about-body a { color: var(--accent); text-decoration: none; border-bottom: 1px solid currentColor; }
+
+.interests-grid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 32px;
+}
+
+.interest-block .int-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--light);
+  margin-bottom: 6px;
+}
+
+.interest-block ul {
+  list-style: none;
+  font-size: 15.5px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.interest-block ul li::before {
+  content: '— ';
+  color: var(--light);
+}
+
+.market-banner {
+  margin-top: 28px;
+  padding: 12px 18px;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  background: var(--coming-bg);
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ── Contact ── */
+.contact-table { border-collapse: collapse; width: 100%; }
+.contact-table td {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 16.5px;
+  vertical-align: top;
+}
+.contact-table tr:first-child td { border-top: 1px solid var(--rule); }
+.contact-table td:first-child {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--light);
+  width: 120px;
+  padding-right: 24px;
+  padding-top: 18px;
+}
+
+/* ── Footer ── */
+footer {
+  margin-top: 72px;
+  padding-top: 22px;
+  border-top: 1px solid var(--rule);
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--light);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .page { padding: 36px 20px 72px; }
+  header { flex-direction: column; gap: 14px; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-photo, .about-photo-placeholder { max-width: 160px; }
+  .interests-grid { grid-template-columns: 1fr; }
+  h1.page-title, .about-name { font-size: 1.6rem; }
+  .paper { grid-template-columns: 22px 1fr; }
+  .contact-table td:first-child { width: 90px; }
+}
